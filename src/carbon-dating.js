@@ -19,12 +19,13 @@ const k = 0.693 / HALF_LIFE_PERIOD
  *
  */
 function dateSample(sampleActivity) {
-  throw new NotImplementedError('Not implemented');
-  if(typeof sampleActivity !== 'string' || sampleActivity > MODERN_ACTIVITY) {
+  // throw new NotImplementedError('Not implemented');
+  if(!sampleActivity || typeof sampleActivity !== 'string' || sampleActivity > MODERN_ACTIVITY || sampleActivity < 0) {
 return false
-  } else {
-    return Math.ceil(Math.log(MODERN_ACTIVITY / Number(sampleActivity)) / k)
+  } else if (!Number(sampleActivity) || sampleActivity === Infinity) {
+return false
   }
+    return Math.ceil(Math.log(MODERN_ACTIVITY / Number(sampleActivity)) / k)
 }
 
 module.exports = {
