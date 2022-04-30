@@ -18,8 +18,11 @@ const { NotImplementedError } = require('../extensions/index.js');
    if (!date) {
     return 'Unable to determine the time of year!'
   }
-    if (!(date instanceof Date)) { 
-   throw new Error('Invalid date!') 
+  //   if (!(date instanceof Date)) { 
+  //  throw new Error('Invalid date!') 
+  // }
+  if (date.hasOwnProperty('getMonth')){
+    throw new Error('Invalid date!') 
   }
    if (index < 2 || index > 10) {
     result = 'winter'
