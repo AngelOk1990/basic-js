@@ -16,7 +16,7 @@ function deleteDigit(n) {
   let str = String(n)
 let newStr
 let num = 0
-  // throw new NotImplementedError('Not implemented');
+ 
   for (let i = 0; i < str.length; i++) {
     newStr = str.slice(0, i) + str.slice(i + 1)
     if (Number(newStr) > num) {
